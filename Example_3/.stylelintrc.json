@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-order",
+    "stylelint-prettier/recommended"
+  ],
+  "rules": {
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "max-nesting-depth": 6,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["", "global"] }],
+    "selector-max-compound-selectors": 5
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "eslint-config-prettier",
+    "plugin:i18next/recommended"
+  ],
+  "plugins": ["react", "jest", "prettier", "@typescript-eslint", "i18next"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "radix": "off",
+    "class-methods-use-this": "off",
+    "max-lines-per-function": ["error", 100],
+    "require-await": "error",
+    "complexity": ["error", 6],
+    "max-params": ["error", 4],
+    "max-statements": ["error", 10],
+    "max-nested-callbacks": ["error", 2],
+    "camelcase": "error",
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "max-depth": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 200,
+        "skipComments": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "mjs": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "id-denylist": ["error", "data", "callback", "container", "wrapper", "func", "object"],
+    "id-length": [
+      "error",
+      {
+        "max": 42,
+        "min": 4,
+        "exceptions": ["url", "id", "ID", "API", "Api", "api", "sum", "key", "_"],
+        "properties": "never"
+      }
+    ],
+    "prefer-arrow-callback": "error",
+    "no-underscore-dangle": "error",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-use-before-define": "error",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "enumMember",
+        "format": ["UPPER_CASE"]
+      }
+    ],
+    "i18next/no-literal-string": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "arrow-body-style": ["warn", "as-needed"]
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "i18next/no-literal-string": [
+          "error",
+          {
+            "ignoreCallee": ["translate"],
+            // ignore when written in "name" attribute (for Icon component).
+            "ignoreAttribute": ["name"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "max-nested-callbacks": ["error", 5],
+        "id-denylist": ["error", "data", "callback", "wrapper", "func", "object"],
+        "max-lines-per-function": "off",
+        "i18next/no-literal-string": "off"
+      }
+    }
+  ]
+}

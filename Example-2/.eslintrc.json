@@ -1,0 +1,138 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:jest/recommended",
+    "eslint-config-prettier",
+    "plugin:mdx/recommended",
+    "plugin:lodash/recommended"
+  ],
+  "plugins": ["react", "jest", "prettier", "@typescript-eslint", "lodash"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      },
+      "alias": {
+        "map": [
+          // Add aliases here:
+        ]
+      }
+    }
+  },
+  "ignorePatterns": ["lib/*"],
+  "rules": {
+    "prettier/prettier": "error",
+    "lodash/prefer-lodash-method": "off",
+    "lodash/prefer-noop": "off",
+    "lodash/prefer-lodash-typecheck": "off",
+    "radix": "off",
+    "max-lines-per-function": ["error", 100],
+    "require-await": "error",
+    "complexity": ["error", 6],
+    "max-params": ["error", 4],
+    "max-statements": ["error", 10],
+    "max-nested-callbacks": ["error", 2],
+    "max-len": [2, 120, 4],
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "max-depth": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 200,
+        "skipComments": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "mjs": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "id-denylist": ["error", "data", "callback", "container", "wrapper", "func", "object"],
+    "id-length": [
+      "error",
+      {
+        "max": 42,
+        "min": 4,
+        "exceptions": ["url", "id", "ID", "API", "Api", "api", "sum", "key", "_", "ref"],
+        "properties": "never"
+      }
+    ],
+    "prefer-arrow-callback": "error",
+    "no-underscore-dangle": "error",
+    "import/prefer-default-export": "off",
+    "import/named": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "react/require-default-props": "off",
+    "react/no-array-index-key": "off",
+    "@typescript-eslint/no-use-before-define": "error",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "enumMember",
+        "format": ["UPPER_CASE"]
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "react/jsx-no-bind": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.spec.ts", "*.spec.tsx"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "max-nested-callbacks": ["error", 5],
+        "id-denylist": ["error", "data", "callback", "wrapper", "func", "object"],
+        "max-lines-per-function": "off"
+      }
+    }
+  ]
+}

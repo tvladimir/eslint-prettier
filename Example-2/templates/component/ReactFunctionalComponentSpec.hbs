@@ -1,0 +1,10 @@
+import React from 'react';
+import { render } from '@testing-library/react';
+import { {{pascalCase name}} } from './{{pascalCase name}}';
+
+describe('{{pascalCase name}}', () => {
+  it('should render without error', () => {
+    const { container } = render(<{{pascalCase name}} />);
+    expect(container.querySelector('div')).toBeTruthy();
+  });
+});
